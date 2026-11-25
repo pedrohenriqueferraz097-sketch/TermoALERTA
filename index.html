@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TermoALERTA | Inovação em Segurança Térmica e Circuito Arduino</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- CABEÇALHO E MENU DE NAVEGAÇÃO -->
+    <header class="cabecalho">
+        <div class="container nav-container">
+            <a href="#inicio" class="logo">
+                <span class="logo-icone">🌡️</span>
+                <span class="logo-texto">Termo<strong>ALERTA</strong></span>
+            </a>
+
+            <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu principal">☰</button>
+
+            <nav class="menu" id="menuPrincipal">
+                <ul>
+                    <li><a href="#inicio">Início</a></li>
+                    <li><a href="#conscientizacao">Diretrizes & Sinais</a></li>
+                    <li><a href="#circuito">Circuito & Hardware</a></li>
+                    <li><a href="#simulador">Simulador Interativo</a></li>
+                    <li><a href="#loja">Loja Oficial</a></li>
+                    <li><a href="#contato">Contato</a></li>
+                </ul>
+            </nav>
+
+            <button class="btn-carrinho" id="btnAbrirCarrinho">
+                🛒 Carrinho (<span id="contadorCarrinho">0</span>)
+            </button>
+        </div>
+    </header>
+
+    <!-- SEÇÃO PRINCIPAL (HERO) -->
+    <section id="inicio" class="hero">
+        <div class="container hero-grid">
+            <div class="hero-texto">
+                <span class="badge-novidade">Tecnologia Preventiva • Ourinhos / SP</span>
+                <h1>Transformando a percepção do calor invisível em segurança ativa.</h1>
+                <p>
+                    O <strong>TermoALERTA</strong> combina materiais termocrômicos inteligentes e automação microcontrolada para proteger <strong>crianças</strong> e <strong>cozinheiros</strong> contra queimaduras por contato em superfícies aquecidas a partir de <strong>32,5°C</strong>.
+                </p>
+                <div class="hero-botoes">
+                    <a href="#simulador" class="btn btn-primario">Acessar Simulador</a>
+                    <a href="#circuito" class="btn btn-secundario">Conhecer o Hardware</a>
+                </div>
+            </div>
+
+            <div class="hero-visual">
+                <div class="cartao-demonstracao">
+                    <div class="selo-termocromico">
+                        <span class="cor-verde">&lt; 32.5°C</span>
+                        <span class="cor-amarela">32.5°C+</span>
+                        <span class="cor-vermelha">60°C+</span>
+                    </div>
+                    <p class="legenda-visual">Escala cromática intuitiva: do seguro ao crítico.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEÇÃO 1: DIRETRIZES E SINAIS TÉRMICOS -->
+    <section id="conscientizacao" class="secao">
+        <div class="container">
+            <div class="cabecalho-secao">
+                <h2>O perigo térmico nem sempre é visível</h2>
+                <p>A partir de 32,5°C, superfícies industriais e domésticas iniciam seu limiar de aquecimento acima da temperatura corporal, exigindo atenção preventiva rigorosa:</p>
+            </div>
+
+            <div class="painel-dicas">
+                <h3>Guia Especializado de Monitoramento — Selecione o Perfil:</h3>
+                <div class="botoes-perfil">
+                    <button class="btn-perfil ativo" id="btnPerfilCrianca">👶 Foco Familiar & Infantil</button>
+                    <button class="btn-perfil" id="btnPerfilCozinheiro">👨‍🍳 Foco Profissional & Cozinhas</button>
+                </div>
+                <div class="conteudo-dicas" id="conteudoDicas"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEÇÃO 2: ARQUITETURA DO CIRCUITO COM IMAGENS REAIS -->
+    <section id="circuito" class="secao secao-alternativa">
+        <div class="container">
+            <div class="cabecalho-secao">
+                <h2>Engenharia de Hardware: O Circuito TermoALERTA</h2>
+                <p>Descubra como a integração entre microcontroladores e sensores térmicos processa variações de temperatura em tempo real:</p>
+            </div>
+
+            <!-- Galeria de Fotos do Hardware -->
+            <div class="galeria-hardware">
+<div class="galeria-hardware">
+                <div class="card-hardware">
+                    <img src="https://images.unsplash.com/photo-1555680202-c86f0e12f086?auto=format&fit=crop&w=400&q=80" alt="Placa microcontroladora Arduino em bancada de desenvolvimento" class="img-hardware">
+                    <div class="info-hardware">
+                        <h4>Núcleo de Processamento (Arduino)</h4>
+                        <p>Responsável pela leitura analógica contínua, filtragem digital de ruídos e gestão dos atuadores de alerta.</p>
+                    </div>
+                </div>
+
+                <div class="card-hardware">
+                    <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=400&q=80" alt="Termistor NTC e componentes eletrônicos" class="img-hardware">
+                    <div class="info-hardware">
+                        <h4>Sensor Térmico (Termistor NTC)</h4>
+                        <p>Componente semicondutor de alta sensibilidade cuja resistência elétrica varia de forma inversamente proporcional à temperatura.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Descrição Técnica Detalhada -->
+            <div class="grid-estatisticas" style="margin-top: 40px;">
+                <div class="card-dado">
+                    <h3 style="color: var(--cor-primaria); margin-bottom: 10px;">1. Topologia do Circuito</h3>
+                    <p>Alimentado por uma referência estável de 5V, o circuito utiliza uma associação em divisor de tensão entre um resistor fixo de precisão (10kΩ) e o termistor NTC, enviando o sinal analógico diretamente à porta A0.</p>
+                </div>
+                <div class="card-dado">
+                    <h3 style="color: var(--cor-primaria); margin-bottom: 10px;">2. Filtragem e Software</h3>
+                    <p>O firmware implementa algoritmos de sobreamostragem (média móvel) para expurgar interferências eletromagnéticas e ruídos de protoboard, garantindo leitura térmica altamente fidedigna.</p>
+                </div>
+                <div class="card-dado">
+                    <h3 style="color: var(--cor-primaria); margin-bottom: 10px;">3. Expansão e Resposta</h3>
+                    <p>Os dados processados são transmitidos via interface Serial e podem acionar instantaneamente sinalizadores visuais (LEDs RGB) ou sonoros (buzzers) ao atingirem limiares críticos.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEÇÃO 3: SIMULADOR INTERATIVO -->
+    <section id="simulador" class="secao">
+        <div class="container">
+            <div class="cabecalho-secao">
+                <h2>Simulador Térmico Digital (A partir de 32.5°C)</h2>
+                <p>Simule o comportamento térmico em tempo real e observe a resposta automatizada do sistema:</p>
+            </div>
+
+            <div class="caixa-simulador">
+                <div class="indicador-circulo estado-normal" id="indicadorVisual" role="status" aria-live="polite">
+                    <span id="iconeStatus" style="font-size: 1.8rem; margin-bottom: 5px;">🛡️</span>
+                    <span id="textoStatus">SEGURO</span>
+                    <strong id="valorTemperatura">25°C</strong>
+                </div>
+
+                <div class="controles-simulador">
+                    <label for="sliderTemp">Variação Térmica da Superfície (20°C a 120°C):</label>
+                    <input type="range" id="sliderTemp" min="20" max="120" value="25" aria-label="Ajuste de temperatura">
+                    
+                    <div class="botoes-rapidos">
+                        <button type="button" class="btn-temp" data-temp="25">Ambiente (25°C)</button>
+                        <button type="button" class="btn-temp" data-temp="35">Aquecido (35°C)</button>
+                        <button type="button" class="btn-temp" data-temp="75">Crítico (75°C)</button>
+                    </div>
+                </div>
+
+                <div class="alerta-educativo" id="mensagemSimulador">
+                    ✅ <strong>Condição Segura:</strong> Temperatura abaixo de 32,5°C. Manipulação e toque inteiramente livres.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEÇÃO 4: LOJA VIRTUAL -->
+    <section id="loja" class="secao secao-alternativa">
+        <div class="container">
+            <div class="cabecalho-secao">
+                <h2>Loja Oficial TermoALERTA</h2>
+                <p>Adquira nossos kits de sinalização preventiva desenvolvidos para lares, instituições e cozinhas profissionais.</p>
+            </div>
+
+            <div class="grid-produtos">
+                <article class="card-produto">
+                    <div class="img-produto" style="background: linear-gradient(135deg, #2ecc71, #f1c40f);"><span>🏠 Kit Residencial</span></div>
+                    <div class="info-produto">
+                        <h3>Kit Casa Segura (5 Unidades)</h3>
+                        <p>Proteção essencial para portas de fornos, micro-ondas e eletrodomésticos acessíveis a crianças.</p>
+                        <span class="preco">R$ 29,90</span>
+                        <button class="btn btn-primario btn-comprar" data-nome="Kit Casa Segura" data-preco="29.90">Adicionar ao Carrinho</button>
+                    </div>
+                </article>
+
+                <article class="card-produto">
+                    <div class="img-produto" style="background: linear-gradient(135deg, #f39c12, #e74c3c);"><span>👨‍🍳 Linha Chef Pro</span></div>
+                    <div class="info-produto">
+                        <h3>Pack Cozinheiro Pro (10 Unidades)</h3>
+                        <p>Alta durabilidade térmica para cabos de panelas, chapas e superfícies de cocção intensiva.</p>
+                        <span class="preco">R$ 49,90</span>
+                        <button class="btn btn-primario btn-comprar" data-nome="Pack Cozinheiro Pro" data-preco="49.90">Adicionar ao Carrinho</button>
+                    </div>
+                </article>
+
+                <article class="card-produto">
+                    <div class="img-produto" style="background: linear-gradient(135deg, #3498db, #2ecc71);"><span>🏫 Linha Institucional</span></div>
+                    <div class="info-produto">
+                        <h3>Kit Escolas & Creches (25 Unidades)</h3>
+                        <p>Sinalização pedagógica ampliada para refeitórios escolares e abrigos especializados.</p>
+                        <span class="preco">R$ 109,90</span>
+                        <button class="btn btn-primario btn-comprar" data-nome="Kit Escolas & Creches" data-preco="109.90">Adicionar ao Carrinho</button>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEÇÃO 5: CONTATO E SUPORTE -->
+    <section id="contato" class="secao">
+        <div class="container container-estreito">
+            <div class="cabecalho-secao">
+                <h2>Central de Atendimento</h2>
+                <p>Entre em contato conosco para tirar dúvidas técnicas sobre o circuito ou solicitar orçamentos corporativos:</p>
+            </div>
+
+            <form id="formContato" class="formulario" novalidate>
+                <div class="campo-form">
+                    <label for="nome">Nome Completo *</label>
+                    <input type="text" id="nome" placeholder="Ex: Carlos Eduardo">
+                </div>
+                <div class="campo-form">
+                    <label for="email">E-mail Profissional ou Pessoal *</label>
+                    <input type="email" id="email" placeholder="Ex: carlos@email.com">
+                </div>
+                <div class="campo-form">
+                    <label for="mensagem">Sua Mensagem *</label>
+                    <textarea id="mensagem" rows="4" placeholder="Detalhe sua solicitação ou dúvida..."></textarea>
+                </div>
+                <button type="submit" class="btn btn-primario btn-largo">Enviar Mensagem</button>
+                <p id="feedbackForm" class="feedback-form"></p>
+            </form>
+        </div>
+    </section>
+
+    <!-- MODAL DO CARRINHO -->
+    <div class="modal-overlay" id="modalCarrinho">
+        <div class="modal-conteudo">
+            <div class="modal-cabecalho">
+                <h3>🛒 Carrinho de Compras</h3>
+                <button class="btn-fechar" id="btnFecharCarrinho">✖</button>
+            </div>
+            <div id="itensCarrinho" class="lista-carrinho">
+                <p class="carrinho-vazio">Seu carrinho encontra-se vazio.</p>
+            </div>
+            <div class="modal-rodape">
+                <div class="total-carrinho"><span>Valor Total:</span><strong id="valorTotalCarrinho">R$ 0,00</strong></div>
+                <button class="btn btn-primario btn-largo" id="btnFinalizarCompra">Finalizar Solicitação</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- RODAPÉ -->
+    <footer class="rodape">
+        <div class="container">
+            <strong>TermoALERTA © 2026</strong>
+            <p>Inovação Preventiva em Segurança Térmica • Ourinhos - São Paulo, Brasil</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
